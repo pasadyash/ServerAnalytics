@@ -1,0 +1,118 @@
+.text-color{
+    color: #c8ced3;
+}
+
+body {
+    background-color: #2f353a;
+}
+
+.wrapper{
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#content{
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+h3{
+    text-align: center;
+}
+/******SIdebar******/
+#sidebar{
+    /* min-width: 250px; */
+    z-index:2;
+    width:0px;
+    max-width: 250px;
+    min-height: 100vh;/*viewport height*/
+    background: #3a4149;
+    color: #c8ced3;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease-in-out;
+}
+
+a {
+    color: inherit;
+}
+
+a:hover, a:focus {
+    color: #20a8d8;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #3a4149;
+    
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #20a8d8;
+    background: #2f353a;
+}
+
+#sidebar.active{
+    margin-left: -250px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+/*bootstrap classes overwrite*/
+.navbar{
+    background-color: #3a4149;
+}
+
+.btn-primary{
+    background-color: #161616;
+    border-color: #161616;
+}
+
+#Home {
+    border-width:0px;
+    overflow-y: hidden;
+    min-height:2500px ;
+    height: max-content;
+    /* max-height:2500px ; */
+}
+
+#Gauge {
+    border-width:0px;
+    overflow-y: hidden;
+    min-height:1600px ;
+    height: max-content;
+    /* max-height:2500px ; */
+}
+
+#Pie, #Bar {
+    border-width:0px;
+    overflow-y: hidden;
+    min-height:1950px ;
+    height: max-content;
+    /* max-height:2500px ; */
+}
+
+.container {
+    min-width:100%;
+    padding: 0px; 
+}

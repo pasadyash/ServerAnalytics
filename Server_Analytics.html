@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>
+            Server Analytics and Metrics
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="./Style.css"/>
+    </head>
+    <body>
+        <!--Side Bar-->
+        <div class="wrapper">
+            <!-- <nav id="sidebar">
+                    <div id="Side" class="sidebar-header">
+                        <h3>Overview</h3>
+                    </div>
+            
+                    <ul id="lis" class="list-unstyled components">
+                        <li>
+                            <a href="#">Maps</a>
+                        </li>
+                        <li>
+                            <a href="#">Gauge</a>
+                        </li>
+                        <li>
+                            <a href="#">Statistics</a>
+                        </li>
+                        <li><br></li>
+                        
+                    </ul>
+                </nav>    -->
+             
+            <script>
+
+                var menu= true;
+                toggleMenu = function ()  {
+                if(menu) {
+                    document.getElementById("lis").style.display = "none";
+                    document.getElementById("Side").style.display = "none";
+                    menu = false;
+                    document.getElementById("sidebar").style.width = "0px";
+                }
+                else {
+                    // document.getElementById("sidebar").style.width = "250px";
+                    document.getElementById("lis").style.display = "block";
+                    document.getElementById("Side").style.display = "block";
+                    menu = true;
+                    document.getElementById("sidebar").style.width = "250px";
+                }
+            }
+
+
+                var latest = "Home";
+                function switchContent(choice){
+                    //var container = document.getElementById("cnt");
+                    // container.removeChild(container.childNodes[latest]);
+                    switch(choice){
+                        case "0":
+                            // container.appendChild(document.getElementById("Home"));
+                            document.getElementById("Home").hidden=false;
+                            if(latest != "Home")    
+                                document.getElementById(latest).hidden=true;
+                            latest = "Home";
+                            break;
+                        case "1":
+                            // container.appendChild(document.getElementById("Gauge"));
+                            document.getElementById("Gauge").hidden=false;
+                            if(latest != "Gauge")
+                                document.getElementById(latest).hidden=true;
+                            latest = "Gauge";
+                            break;
+                        case "2":
+                            // container.appendChild(document.getElementById("Pie"));
+                            document.getElementById("Pie").hidden=false;
+                            if(latest != "Pie")    
+                                document.getElementById(latest).hidden=true;
+                            latest = "Pie";
+                            break;
+                        case "3":
+                            // container.appendChild(document.getElementById("Bar"));
+                            document.getElementById("Bar").hidden=false;
+                            if(latest != "Bar")    
+                                document.getElementById(latest).hidden=true;
+                            latest = "Bar";
+                            break;
+                    }
+                }
+
+            </script>
+        <!--Main Content-->
+            <div id="content">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <button type="button" id="toggleSideBar" class="btn btn-info" onclick="toggleMenu()">
+                        <i class="fas fa-align-left">|||</i>
+                    </button>
+                  <div class="navbar-nav">  
+                    <a class="nav-item nav-link active" href="#" onclick='switchContent("0");' >Home <span class="sr-only">(current)</span></a>
+                    <!-- <a class="nav-item nav-link" href="#">Maps</a> -->
+                    <a class="nav-item nav-link" href="#" onclick='switchContent("1");'>Gauge</a>
+                    <a class="nav-item nav-link" href="#" onclick='switchContent("2");'>Pie Chart</a>
+                    <a class="nav-item nav-link" href="#" onclick='switchContent("3");'>Bar Graph</a>
+                  </div>
+                </nav>
+                
+                <div id="cnt" class="container">  
+                    <iframe id="Home" src="http://localhost:5601/app/kibana#/dashboard/20a07600-7933-11e8-9f6f-afaf50b8d0fc?embed=true&_g=(refreshInterval%3A('%24%24hashKey'%3A'object%3A4563'%2Cdisplay%3A'10%20seconds'%2Cpause%3A!f%2Csection%3A1%2Cvalue%3A10000)%2Ctime%3A(from%3Anow-15m%2Cmode%3Aquick%2Cto%3Anow))" height="100%" width="100%"></iframe>
+                    <iframe id="Gauge" hidden src="http://localhost:5601/app/kibana#/dashboard/f0f9ad70-7ac9-11e8-a1de-d37820588d15?embed=true&_g=(refreshInterval%3A('%24%24hashKey'%3A'object%3A4563'%2Cdisplay%3A'10%20seconds'%2Cpause%3A!f%2Csection%3A1%2Cvalue%3A10000)%2Ctime%3A(from%3Anow-15m%2Cmode%3Aquick%2Cto%3Anow))" height="100%" width="100%"></iframe>
+                    <iframe id="Pie" hidden src="http://localhost:5601/app/kibana#/dashboard/86e9ac00-7b6e-11e8-becd-c373d7e43876?embed=true&_g=(refreshInterval%3A('%24%24hashKey'%3A'object%3A4563'%2Cdisplay%3A'10%20seconds'%2Cpause%3A!f%2Csection%3A1%2Cvalue%3A10000)%2Ctime%3A(from%3Anow-15m%2Cmode%3Aquick%2Cto%3Anow))" height="100%" width="100%"></iframe>
+                    <iframe id="Bar" hidden src="http://localhost:5601/app/kibana#/dashboard/58655670-7b70-11e8-becd-c373d7e43876?embed=true&_g=(refreshInterval%3A('%24%24hashKey'%3A'object%3A4563'%2Cdisplay%3A'10%20seconds'%2Cpause%3A!f%2Csection%3A1%2Cvalue%3A10000)%2Ctime%3A(from%3Anow-15m%2Cmode%3Aquick%2Cto%3Anow))" height="100%" width="100%"></iframe>
+                </div>
+            </div>           
+        </div>        
+    </body>
+</html>
