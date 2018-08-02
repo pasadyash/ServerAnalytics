@@ -1,2 +1,2 @@
-# ServerAnalytics-
+# ServerAnalytics
 Server Analytics
